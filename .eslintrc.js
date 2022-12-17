@@ -17,7 +17,8 @@ module.exports = {
     }
   },
   rules: {
-    'react/react-in-jsx-scope': 'off',
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/display-name': 'off',
     '@next/next/no-img-element': 'off',

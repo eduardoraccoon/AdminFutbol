@@ -6,7 +6,6 @@ import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -15,6 +14,7 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
+import Dialog from '@mui/material/Dialog';  
 
 import axios from 'axios';
 import Snackbar from '../snackbar';
@@ -26,11 +26,11 @@ function IndexEquipos() {
     const [select, setSelect] = useState();
     const [pokemons, setPokemons] = useState();
 
-    useEffect(() => {
-        axios
-        .get('https://localhost:7132/api/Equipos/lista')
-        .then(resp => setData(resp))
-    }, [])
+    // useEffect(() => {
+    //     axios
+    //     .get('https://localhost:7132/api/Equipos/lista')
+    //     .then(resp => setData(resp))
+    // }, [])
 
 
     const handleOpenModal = (params) => {
