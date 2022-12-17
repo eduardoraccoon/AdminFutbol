@@ -26,7 +26,12 @@ function IndexEquipos() {
     const [select, setSelect] = useState();
     const [pokemons, setPokemons] = useState();
 
- 
+    useEffect(() => {
+        axios
+        .get('https://localhost:7132/api/Equipos/lista')
+        .then(resp => setData(resp))
+    }, [])
+
 
     const handleOpenModal = (params) => {
         setOpenCloseModal(true);
