@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid'
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
 // Components
-import HomePage from 'src/components/home'
+import HomePage from 'src/components/Index'
 
 const Dashboard = () => {
   return (
