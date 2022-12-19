@@ -24,7 +24,7 @@ const DefaultPalette = (mode, themeColor) => {
     customColors: {
       main: mainColor,
       primaryGradient: primaryGradient(),
-      tableHeaderBg: mode === 'light' ? '#F9FAFC' : '#3D31a237e759'
+      tableHeaderBg: mode === 'light' ? '#F9FAFC' : '#015f92'
     },
     common: {
       black: '#000',
