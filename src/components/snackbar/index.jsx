@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Alert from '@mui/material/Alert';
 
-function SimpleSnackbar({ open, setOpen, message }) {
+function SimpleSnackbar({ openSnackbar, setOpenSnackbar, messageSnackbar, severity }) {
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
 
-        setOpen(false);
+        setOpenSnackbar(false);
     };
 
     const action = (
-        <>            
+        <>
             <IconButton
                 size="small"
                 aria-label="close"
@@ -29,13 +30,19 @@ function SimpleSnackbar({ open, setOpen, message }) {
     return (
         <>
             <Snackbar
-                open={open}
+                open={openSnackbar}
                 autoHideDuration={4000}
                 onClose={handleClose}
-                message={message}
                 action={action}
-                color="success"
-            />
+            >
+                <Alert
+                    onClose={handleClose}
+                    severity={severity}
+                    sx={{ width: '100%' }}
+                >
+                    {messageSnackbar}
+                </Alert>
+            </Snackbar>
         </>
     );
 }

@@ -18,7 +18,7 @@ const navigation = () => {
     {
       title: 'Jornadas',
       icon: CalendarMonthIcon,
-      path: '/pages/jugadores'
+      path: '/pages/jornadas'
     },
 
     // {

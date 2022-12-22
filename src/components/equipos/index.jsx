@@ -39,7 +39,10 @@ function IndexEquipos() {
     const [openCloseModal, setOpenCloseModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const [type, setType] = useState("");
-    const [form, setForm] = useState(intialStateForm)
+    const [form, setForm] = useState(intialStateForm);
+    const [openSnackbar, setOpenSnackbar] = useState(true);
+    const [messageSnackbar, setMessageSnackbar] = useState("Éxito");
+    const [severity, setSeverity] = useState("info")
 
     // useEffect(() => {
     //     axios
@@ -62,80 +65,75 @@ function IndexEquipos() {
         setOpenCloseModal(false);
     }
 
-    const handleAction = (params) => {
-        return (
-            <>
-                <IconButton
-                    onClick={() => handleOpenModalEdit(params)}
-                    aria-label="info"
-                    color='info'
-                >
-                    <EditIcon />
-                </IconButton>
-            </>
-        )
-    }
-
-    const estatus = (params) => {
-        return (
-            <>
-                <Chip
-                    label={params.row.estatus === 1 ? "Activo" : "Baja"}
-                    color={params.row.estatus === 1 ? "success" : "error"}
-                    variant="outlined"
-                />
-            </>
-        )
-    }
-
-    const jugadores = (params) => {
-        return (
-            <>
-                <IconButton
-                    onClick={() => handleOpenModalEdit(params)}
-                    aria-label="info"
-                    color='info'
-                >
-                    <GroupIcon />
-                </IconButton>
-            </>
-        )
-    }
-
     const columns = [
         {
             field: 'id',
-            headerName: '#',
-            flex: 1
+            headerName: 'ID',
+            maxWidth: 50,
         },
         {
             field: 'nombre',
             headerName: 'Nombre',
-            flex: 1
+            minWidth: 250
         },
         {
             field: 'fk_id_encargado',
             headerName: 'Encargado',
-            type: 'number',
-            flex: 1
+            type: 'number'
         },
         {
             field: 'estatus',
             headerName: 'Estatus',
-            renderCell: estatus,
-            flex: 1
+            renderCell: (params) => {
+                return (
+                    <>
+                        <Chip
+                            label={params.row.estatus === 1 ? "Activo" : "Baja"}
+                            color={params.row.estatus === 1 ? "success" : "error"}
+                            variant="outlined"
+                        />
+                    </>
+                )
+            },
+            maxWidth: 100
         },
         {
             field: '',
             headerName: 'Jugadores',
-            renderCell: jugadores,
-            flex: 1
+            renderCell: (params) => {
+                return (
+                    <>
+                        <IconButton
+                            onClick={() => handleOpenModalEdit(params)}
+                            aria-label="info"
+                            color='info'
+                        >
+                            <GroupIcon />
+                        </IconButton>
+                    </>
+                )
+            },
+            maxWidth: 80,
+            align: "center"
         },
         {
             field: 'info',
             headerName: '',
-            renderCell: handleAction,
-            flex: 1
+            renderCell: (params) => {
+                return (
+                    <>
+                        <IconButton
+                            onClick={() => handleOpenModalEdit(params)}
+                            aria-label="info"
+                            color='info'
+                        >
+                            <EditIcon />
+                        </IconButton>
+                    </>
+                )
+            },
+            align: "center",
+            maxWidth: 70
         },
     ];
 
@@ -174,6 +172,13 @@ function IndexEquipos() {
                 form={form}
                 setForm={setForm}
                 type={type}
+            />
+
+            <Snackbar
+                openSnackbar={openSnackbar}
+                setOpenSnackbar={setOpenSnackbar}
+                messageSnackbar={messageSnackbar}
+                severity={severity}
             />
         </>
     )
