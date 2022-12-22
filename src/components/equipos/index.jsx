@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
 import Button from '@mui/material/Button';
 import { GridToolbarContainer, GridToolbarFilterButton } from '@mui/x-data-grid';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import Chip from '@mui/material/Chip';
+import GroupIcon from '@mui/icons-material/Group';
 
 import axios from 'axios';
 import Snackbar from '../snackbar';
@@ -88,6 +88,20 @@ function IndexEquipos() {
         )
     }
 
+    const jugadores = (params) => {
+        return (
+            <>
+                <IconButton
+                    onClick={() => handleOpenModalEdit(params)}
+                    aria-label="info"
+                    color='info'
+                >
+                    <GroupIcon />
+                </IconButton>
+            </>
+        )
+    }
+
     const columns = [
         {
             field: 'id',
@@ -112,8 +126,14 @@ function IndexEquipos() {
             flex: 1
         },
         {
+            field: '',
+            headerName: 'Jugadores',
+            renderCell: jugadores,
+            flex: 1
+        },
+        {
             field: 'info',
-            headerName: 'Acciones',
+            headerName: '',
             renderCell: handleAction,
             flex: 1
         },

@@ -1,6 +1,7 @@
 // ** Icon imports
 import HomeOutline from 'mdi-material-ui/HomeOutline'
-import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const navigation = () => {
   return [
@@ -11,12 +12,12 @@ const navigation = () => {
     },
     {
       title: 'Equipos',
-      icon: AccountCogOutline,
+      icon: AssignmentIndIcon,
       path: '/pages/equipos'
     },
     {
-      title: 'Jugadores',
-      icon: AccountCogOutline,
+      title: 'Jornadas',
+      icon: CalendarMonthIcon,
       path: '/pages/jugadores'
     },
 
